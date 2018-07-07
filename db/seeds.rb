@@ -5,3 +5,16 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'faker'
+Influencer.destroy_all
+
+10.times do
+  influencer = Influencer.new(
+   influencer_full_name: Faker::Name.name,
+   influencer_instagram_username: Faker::GreekPhilosophers.name,
+   statistics_followers:"30000",
+   statistics_engagement:"10",
+  )
+  influencer.save
+end
+
