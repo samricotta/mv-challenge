@@ -1,6 +1,6 @@
 <h1>Influencers</h1>
 
-<% @array.each do |influencer| %>
+<% @influencers.each do |influencer| %>
 <p><%= influencer.influencer_full_name %></p>
 <p> <%= link_to "Star", influencer_starred_influencers_path(influencer), method: "post"%>
 <% end %>

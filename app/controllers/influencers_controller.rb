@@ -1,6 +1,6 @@
 class InfluencersController < ApplicationController
   def index
-    array = current_user.influencers.map(&:id)
+    @influencers = current_user.influencers.map(&:id)
     Influencer.where('id NOT IN ?', array)
     @starred_influencers = StarredInfluencer.all
   end
