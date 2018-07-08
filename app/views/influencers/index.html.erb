@@ -21,6 +21,7 @@
     <div class="right-container">
       <h1>Starred Influencers</h1>
         <% @influencers.each do |influencer| %>
+        <div class="large-starred">
           <div class="starred-container">
             <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
             <div class="name-starred">
@@ -36,7 +37,10 @@
                 Engagement
              </div>
           </div>
-            <%= link_to "-", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete", class: "buttons" %>
+          <div class="small-end-starred">
+            <%= link_to "x", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete", class: "buttons" %>
+          </div>
+        </div>
         <% end %>
 
       <% if user_signed_in? %>

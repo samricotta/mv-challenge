@@ -54,6 +54,8 @@ padding-left: 25px;
 }
 
 .starred-container {
+  flex: 1 0 800px;
+  flex-grow: 3;
   background-color: rgb(249, 249, 249);
   max-width: 800px;
   // max-height: 80px;
@@ -69,8 +71,10 @@ padding-left: 25px;
   border: 0.5px solid rgba(179, 179, 179, 0.5);
   box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
 }
-.buttons a {
+.buttons {
   text-decoration: none;
+  color: rgb(220, 220, 220);
+  font-size: 30px
 }
 
 .followers {
@@ -89,4 +93,17 @@ padding-left: 25px;
 
 .add {
  margin-right: 30px;
+}
+
+.large-starred {
+  display:flex;
+  justify-content: space-between;
+  max-width: 850px;
+
+}
+
+.small-end-starred {
+  flex-grow: 0.5;
+  margin-top: 55px;
+
 }

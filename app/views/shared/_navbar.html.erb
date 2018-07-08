@@ -1,0 +1,35 @@
+<div class="navbar">
+
+  <!-- Right Navigation -->
+  <div class="navbar-right">
+
+    <% if user_signed_in? %>
+          <%= link_to "Log Out",  destroy_user_session_path, method: :delete, class: "navbar-item navbar-link" %>
+
+      <% else %>
+        <%= link_to "Sign In",  new_user_session_path, class: "navbar-item navbar-link" %>
+      <% end %>
+
+
+    <!-- Profile picture with dropdown list -->
+    <div class="navbar-item">
+      <div class="dropdown">
+
+        <div class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dropdown appearing on mobile only -->
+  <div class="navbar-item hidden-md hidden-lg">
+    <div class="dropdown">
+      <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
+      <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <li><a href="#">Host</a></li>
+        <li><a href="#">Trips</a></li>
+        <li><a href="#">Messagese</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
