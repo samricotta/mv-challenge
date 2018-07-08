@@ -1,6 +1,7 @@
 class StarredInfluencersController < ApplicationController
   def create
-    @starred_influencer = StarredInfluencers.new(influencer_starred_params)
+    @influencer = Influencer.find(params[:influencer_id])
+    @starred_influencer = StarredInfluencer.new
     @starred_influencer.influencer = @influencer
     @starred_influencer.save
   end
@@ -8,7 +9,6 @@ class StarredInfluencersController < ApplicationController
   def destroy
     @starred_influencer = StarredInfluencer.find[:id]
     @starred_influencer.destroy
-    @starred_influencer.save
   end
 
   private
