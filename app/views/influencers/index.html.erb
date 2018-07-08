@@ -6,9 +6,13 @@
           <% @suggestions.each do |influencer| %>
             <div class="influencer-container">
               <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
-                <div class="name-influencer"><%= influencer.influencer_full_name %></div>
+                <div class="name-influencer"><h3><%= influencer.influencer_full_name %></h3>
+                  <i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %>
+                </div>
                   <% if user_signed_in? %>
-                    <%= link_to "+", influencer_starred_influencers_path(influencer), method: "post"%>
+                <div class="add">
+                    <%= link_to "+", influencer_starred_influencers_path(influencer), method: "post", class: "buttons"%>
+                </div>
                   <% end %>
             </div>
           <% end %>
@@ -16,11 +20,24 @@
     </div>
     <div class="right-container">
       <h1>Starred Influencers</h1>
-
-      <% @influencers.each do |influencer| %>
-        <p><%= influencer.influencer_full_name %><p>
-        <p><%= link_to "Unfavourite", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete" %></p>
-      <% end %>
+        <% @influencers.each do |influencer| %>
+          <div class="starred-container">
+            <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
+            <div class="name-starred">
+              <h3><%= influencer.influencer_full_name %></h3>
+                <i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %>
+             </div>
+             <div class="followers">
+               <h3><%= influencer.statistics_followers %></h3>
+               Followers
+             </div>
+              <div class="engagement">
+                <h3><%= influencer.statistics_engagement %>.0 % </h3>
+                Engagement
+             </div>
+          </div>
+            <%= link_to "-", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete", class: "buttons" %>
+        <% end %>
 
       <% if user_signed_in? %>
             <%= link_to "Sign out", destroy_user_session_path, method: :delete %>

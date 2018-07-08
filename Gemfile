@@ -21,7 +21,7 @@ gem 'devise'
 gem 'figaro'
 gem 'pg', '~> 0.21'
 gem 'faker'
-gem 'devise'
+gem 'bootstrap', '~> 4.0'
 
 
 
