@@ -1,0 +1,2 @@
+<p> <%= link_to "Star", @recipe, type: "favorite", method: :put %>
+  <%= link_to "Unstar", @recipe, type: "unfavorite"), method: :put %></p>

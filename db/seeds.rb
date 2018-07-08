@@ -11,7 +11,7 @@ Influencer.destroy_all
 10.times do
   influencer = Influencer.new(
    influencer_full_name: Faker::Name.name,
-   influencer_instagram_username: Faker::GreekPhilosophers.name,
+   influencer_instagram_username: Faker::Name.name,
    statistics_followers:"30000",
    statistics_engagement:"10",
   )

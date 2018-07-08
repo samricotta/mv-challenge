@@ -1,2 +1,13 @@
-<h1>Influencers#index</h1>
-<p>Find me in app/views/influencers/index.html.erb</p>
+<h1>Influencers</h1>
+
+<% @influencers.each do |influencer| %>
+<p><%= influencer.influencer_full_name %></p>
+<% end %>
+
+<h1>Starred Influencers</h1>
+
+<% @starred_influencers.each do |starred_influencer| %>
+<p><%= starred_influencer.influencer.influencer_full_name %></p>
+<% end %>
+
+
