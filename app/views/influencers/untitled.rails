@@ -1,3 +1,0 @@
-<% @starred_influencers.each do |starred_influencer| %>
-<%= starred_influencer.influencer.influencer_full_name %>
-<% end %>

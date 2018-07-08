@@ -1,23 +1,32 @@
+<div class="container-all">
+  <div class="flex-container">
+    <div class="left-container">
+      <h1>Influencers</h1>
+        <div class="container-list">
+          <% @suggestions.each do |influencer| %>
+            <div class="influencer-container">
+              <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
+                <div class="name-influencer"><%= influencer.influencer_full_name %></div>
+                  <% if user_signed_in? %>
+                    <%= link_to "+", influencer_starred_influencers_path(influencer), method: "post"%>
+                  <% end %>
+            </div>
+          <% end %>
+        </div>
+    </div>
+    <div class="right-container">
+      <h1>Starred Influencers</h1>
 
+      <% @influencers.each do |influencer| %>
+        <p><%= influencer.influencer_full_name %><p>
+        <p><%= link_to "Unfavourite", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete" %></p>
+      <% end %>
 
-<h1>Influencers</h1>
-
-<% @suggestions.each do |influencer| %>
-<p><%= influencer.influencer_full_name %></p>
-<p> <%= link_to "favourite", influencer_starred_influencers_path(influencer), method: "post"%></p>
-
-<% end %>
-
-
-<h1>Starred Influencers</h1>
-
-<% @influencers.each do |influencer| %>
-  <p><%= influencer.influencer_full_name %><p>
-  <p><%= link_to "Unfavourite", starred_influencer_path(influencer.starred_influencers.where(user: current_user).first), method: "delete" %></p>
-<% end %>
-
-<% if user_signed_in? %>
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
+      <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to "Sign in", new_user_session_path %>
+          <% end %>
+    </div>
+  </div>
+</div>

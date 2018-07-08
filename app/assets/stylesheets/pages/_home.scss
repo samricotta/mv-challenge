@@ -1,1 +1,37 @@
 // Specific CSS for your home-page
+.container-all{
+  margin-top: 30px;
+}
+
+.flex-container {
+  display:flex;
+  justify-content: space-around;
+  margin-left: 50px;
+}
+
+.left-container {
+flex: 0 1 400px;
+border-right: 1px dotted;
+padding-left: 25px;
+}
+
+.right-container {
+  flex: 1 0 auto;
+  padding-left: 25px;
+}
+
+.influencer-container {
+  display:flex;
+  justify-content: flex-start;
+  padding: 10px;
+  align-items: center;
+}
+
+.avatar-user {
+  background-size: cover;
+  background-position: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
