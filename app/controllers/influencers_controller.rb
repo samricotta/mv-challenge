@@ -1,12 +1,11 @@
 class InfluencersController < ApplicationController
   def index
-    influencers = Influencer.all
-    user_influencers = current_user.influencers.map(&:id)
-    Influencer.where('id NOT IN ?', user_influencers)
-    @starred_influencers = current_user.influencers
+    if user_signed_in?
+      @suggestions = Influencer.where('id NOT IN (SELECT DISTINCT(influencer_id) FROM starred_influencers)')
+      @influencers = current_user.influencers
+    else
+      @suggestions = Influencer.all
+      @influencers = []
+    end
   end
 end
-
-
-#undefined method influencers
-#how to do current user on @starred_influencers = StarredInfluencer.all
