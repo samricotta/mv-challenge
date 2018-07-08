@@ -1,12 +1,17 @@
 <h1>Influencers</h1>
 
-<% @influencers.each do |influencer| %>
+<% @array.each do |influencer| %>
 <p><%= influencer.influencer_full_name %></p>
-
+<p> <%= link_to "Star", influencer_starred_influencers_path(influencer), method: "post"%>
 <% end %>
+
 
 <h1>Starred Influencers</h1>
 
+<% @starred_influencers.each do |starred_influencer| %>
+    <p><%= starred_influencer.influencer.influencer_full_name %><p>
+  <% end %>
+<% end %>
 
 
 

@@ -4,6 +4,7 @@ class StarredInfluencersController < ApplicationController
     @starred_influencer = StarredInfluencer.new
     @starred_influencer.influencer = @influencer
     @starred_influencer.save
+    redirect_to root_path
   end
 
   def destroy

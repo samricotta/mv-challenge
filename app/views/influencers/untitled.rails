@@ -1,2 +1,3 @@
-<p> <%= link_to "Star", @recipe, type: "favorite", method: :put %>
-  <%= link_to "Unstar", @recipe, type: "unfavorite"), method: :put %></p>
+<% @starred_influencers.each do |starred_influencer| %>
+<%= starred_influencer.influencer.influencer_full_name %>
+<% end %>
