@@ -12,7 +12,7 @@
                   <% if user_signed_in? %>
                 <div class="add">
                     <%= link_to "+", influencer_starred_influencers_path(influencer), method: "post", class: "buttons"%>
-                </div>
+                  </div>
                   <% end %>
             </div>
           <% end %>
@@ -20,6 +20,9 @@
     </div>
     <div class="right-container">
       <h1>Starred Influencers</h1>
+        <% if !user_signed_in? %>
+        <p>Please Sign in or Sign up to star users</p>
+        <% end %>
         <% @influencers.each do |influencer| %>
         <div class="large-starred">
           <div class="starred-container">
@@ -43,11 +46,7 @@
         </div>
         <% end %>
 
-      <% if user_signed_in? %>
-            <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-          <% else %>
-            <%= link_to "Sign in", new_user_session_path %>
-          <% end %>
+
     </div>
   </div>
 </div>

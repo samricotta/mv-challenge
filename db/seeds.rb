@@ -12,7 +12,7 @@ Influencer.destroy_all
   influencer = Influencer.new(
    influencer_full_name: Faker::Name.name,
    influencer_instagram_username: Faker::Name.name,
-   statistics_followers:"30000",
+   statistics_followers:"30,000",
    statistics_engagement:"10",
   )
   influencer.save

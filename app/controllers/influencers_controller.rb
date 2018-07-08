@@ -7,5 +7,6 @@ class InfluencersController < ApplicationController
       @suggestions = Influencer.all
       @influencers = []
     end
+      @engagement = @influencers.order("statistics_engagement DESC")
   end
 end
