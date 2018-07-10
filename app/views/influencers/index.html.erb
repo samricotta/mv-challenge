@@ -7,7 +7,7 @@
             <div class="influencer-container">
               <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
                 <div class="name-influencer"><h3><%= influencer.influencer_full_name %></h3>
-                  <i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %>
+                   <div class="lighter"><i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %></div>
                 </div>
                   <% if user_signed_in? %>
                 <div class="add">
@@ -19,9 +19,17 @@
         </div>
     </div>
     <div class="right-container">
+
       <h1>Starred Influencers</h1>
         <% if !user_signed_in? %>
         <p>Please Sign in or Sign up to star users</p>
+        <% else %>
+        <div class="sortable-hightolow">
+          <%= sortablehightolow "statistics_engagement"%>
+        </div>
+        <div class="sortable-lowtohigh">
+          <%= sortablelowtohigh "statistics_engagement"%>
+        </div>
         <% end %>
         <% @influencers.each do |influencer| %>
         <div class="large-starred">
@@ -29,15 +37,15 @@
             <div class="avatar-user" style= "background-image: url(<%= image_path "influencer1.jpg" %>)"></div>
             <div class="name-starred">
               <h3><%= influencer.influencer_full_name %></h3>
-                <i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %>
+                <div class="lighter"><i class="fab fa-instagram"></i> <%= influencer.influencer_instagram_username %> </div>
              </div>
              <div class="followers">
                <h3><%= influencer.statistics_followers %></h3>
-               Followers
+                <div class="lighter">Followers</div>
              </div>
               <div class="engagement">
-                <h3><%= influencer.statistics_engagement %>.0 % </h3>
-                Engagement
+                <h3><%= influencer.statistics_engagement %> %</h3>
+                 <div class="lighter">Engagement</div>
              </div>
           </div>
           <div class="small-end-starred">
@@ -45,8 +53,12 @@
           </div>
         </div>
         <% end %>
-
+        <%#= link_to "low to high", :sort => "statistics_engagement" %>
 
     </div>
+
+
   </div>
 </div>
+
+

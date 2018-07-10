@@ -13,7 +13,7 @@ Influencer.destroy_all
    influencer_full_name: Faker::Name.name,
    influencer_instagram_username: Faker::Name.name,
    statistics_followers:"30,000",
-   statistics_engagement:"10",
+   statistics_engagement:Faker::Number.decimal(2),
   )
   influencer.save
 end
