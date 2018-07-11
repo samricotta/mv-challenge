@@ -24,12 +24,15 @@
         <% if !user_signed_in? %>
         <p>Please Sign in or Sign up to star users</p>
         <% else %>
-        <div class="sortable-hightolow">
-          <%= sortablehightolow "statistics_engagement"%>
-        </div>
-        <div class="sortable-lowtohigh">
-          <%= sortablelowtohigh "statistics_engagement"%>
-        </div>
+
+          <div class="dropdown">
+            <button class="dropbtn">Sort by engagement <i class="fas fa-sort-down"></i></button>
+            <div class="dropdown-content">
+              <a href="#"><%= sortablehightolow "statistics_engagement"%></a>
+              <a href="#"><%= sortablelowtohigh "statistics_engagement"%></a>
+            </div>
+          </div>
+
         <% end %>
         <% @influencers.each do |influencer| %>
         <div class="large-starred">
@@ -60,5 +63,4 @@
 
   </div>
 </div>
-
 
