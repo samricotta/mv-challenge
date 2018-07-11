@@ -8,7 +8,7 @@ module ApplicationHelper
    end
 
    def sortablelowtohigh(column, title = nil)
-  title ||= "Engagement (Low to High)"
+  title ||= "Engagement (Low - High)"
   css_class = column == sort_column ? "current #{sort_direction}" : nil
   direction = column == sort_column && sort_direction == "desc" ? "asc" : "asc"
   link_to title, {:sort => column, :direction => direction}, {:class => css_class}
